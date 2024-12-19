@@ -6,16 +6,27 @@
 ### Fonctionnalités principales
 - Gestion des rôles (admin, gestionnaire, client).
 - Redirection basée sur les rôles.
-- Vérification des emails pour les nouveaux utilisateurs.
+- Vérification des emails pour les clients.
 - Gestion de la récupération de mot de passe.
 - Middleware pour restreindre l'accès en fonction des rôles.
+- gestion des erreurs de pages ( 404 & 403)
 
 ### Instructions pour tester
 1. Clonez le dépôt : `git clone https://github.com/GoldenDev74/commerce.git`.
 2. Installez les dépendances : `composer install`. & `npm install`
 
 4. Configurez l'environnement : `.env`.
-5. Ajoute la méthode suivante dans le fichier AppServiceProvider.php dans le répertoire app/Providers :
+   ```
+    MAIL_MAILER=smtp
+    MAIL_HOST=smtp.gmail.com
+    MAIL_PORT=587
+    MAIL_USERNAME=redmoondevs2024@gmail.com
+    MAIL_PASSWORD=nmhvmabbfaeedmxw
+    MAIL_ENCRYPTION=tls
+    MAIL_FROM_ADDRESS=redmoondevs2024@gmail.com
+    MAIL_FROM_NAME=SkydashEcommerce
+   ```
+6. Ajoute la méthode suivante dans le fichier AppServiceProvider.php dans le répertoire app/Providers :
 ```
  public function boot()
     {
@@ -36,28 +47,9 @@
 
 ## Appendix
 
-pour tester les mails on a utiliser mailtrap. Pour ce faire, ajouter un nouveau compte google à vos compte avec les identifiant suivantes:
+pour tester les mails on a utiliser smtp de gmail. Pour ce faire, ajouter un nouveau compte google à vos compte avec les identifiant suivantes:
  - email : redmoondevs2024@gmail.com
  - mot de passe : redmoon102024
-arrivé sur mailtrap
-
-![Capture d'écran 2024-12-01 224735](https://github.com/user-attachments/assets/70e2183e-ee7d-4990-b14e-3f44a29ca195)
-
-![Capture d’écran 2024-12-01 224909](https://github.com/user-attachments/assets/f386814e-b440-4205-a07b-d3d0c299706c)
-
-![Capture d’écran 2024-12-01 225006](https://github.com/user-attachments/assets/44f85e5b-06ac-4135-be21-d998979b958b)
-
-![Capture d’écran 2024-12-01 225049](https://github.com/user-attachments/assets/3410354f-e98d-4754-9bdc-6efff902267b)
-
-assurer de copier ses configuration suivantes :
-
-![Capture d’écran 2024-12-01 225316](https://github.com/user-attachments/assets/9a7b20af-6930-48bd-8b61-7b9739743a81)
-
-dans vôtres fichier .env comme suit : 
-
-![Capture d’écran 2024-12-01 225339](https://github.com/user-attachments/assets/91d90333-d266-4c27-aea1-5995861fbaf3)
-
-si tout est bien configurer vous deviez reçevoir les mails de vérification pour l'inscription, les mots de passes oublier.
 
 ## Contributing
 Voici les collaborateurs intervenues !
@@ -65,7 +57,6 @@ Voici les collaborateurs intervenues !
 - Mabel4008
 - Steventog
 - Antoine 253
-
 
 ## ScreenShoot
 
@@ -84,5 +75,9 @@ Voici les collaborateurs intervenues !
 ![image](https://github.com/user-attachments/assets/a1702d40-f7b6-43ef-9713-5d7ee676637d)
 
 ![image](https://github.com/user-attachments/assets/49501512-a7f6-4d96-8dfb-61fdf325228a)
+
+![Capture d'écran 2024-12-19 145703](https://github.com/user-attachments/assets/bd8b6f07-be5d-4823-ac78-1b380fa21925)
+
+![Capture d'écran 2024-12-19 150352](https://github.com/user-attachments/assets/e09c7179-d621-436f-b738-65c1d8ddec05)
 
 
