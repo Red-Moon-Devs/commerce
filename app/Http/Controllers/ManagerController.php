@@ -6,8 +6,9 @@ use Illuminate\Http\Request;
 
 class ManagerController extends Controller
 {
-    public function dashboard()
+    public function index()
     {
-        return view('manager.dashboard');
+        // Logique pour afficher la vue du tableau de bord du gestionnaire
+        return view('manager.dashboard'); // Assurez-vous que cette vue existe
     }
 }
