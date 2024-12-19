@@ -21,9 +21,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+//Route::get('/dashboard', function () {
+//  return view('dashboard');
+//}/)->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -32,19 +32,21 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::middleware(['auth', 'manager'])->group(function () {
-    Route::get('/manager/dashboard', [ManagerController::class, 'dashboard'])
+    Route::get('/manager/dashboard', [ManagerController::class, 'index'])
         ->name('manager.dashboard');
 });
 
 Route::middleware(['auth', 'admin'])->group(function () {
-    Route::get('/admin/dashboard', [AdminController::class, 'dashboard'])
+    Route::get('/admin/dashboard', [AdminController::class, 'index'])
+        ->middleware('role:admin')
         ->name('admin.dashboard');
 });
 
 // Routes pour les clients
 Route::middleware(['auth', 'verified'])->group(function () {
-    Route::get('/client/index', [ClientController::class, 'index'])
-        ->name('client.index');
+    Route::get('/client/dashboard', [ClientController::class, 'index'])
+        ->middleware('role:client')
+        ->name('client.dashboard');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

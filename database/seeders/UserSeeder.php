@@ -32,7 +32,7 @@ class UserSeeder extends Seeder
             'address' => 'Avepozo',
             'phone' => '91919191',
             'password' => Hash::make('gestion2024'),
-            'role' => 'gestionnaire',
+            'role' => 'manager',
         ]);
 
         // Vérification immédiate du gestionnaire

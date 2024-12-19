@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('phone')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->enum('role', ['admin', 'gestionnaire', 'client','livreur'])->default('client');
+            $table->enum('role', ['admin', 'manager', 'client','livreur'])->default('client');
             $table->rememberToken();
             $table->timestamps();
         });

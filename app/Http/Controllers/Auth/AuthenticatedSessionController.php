@@ -32,7 +32,6 @@ class AuthenticatedSessionController extends Controller
         // Récupérer l'utilisateur connecté
         $user = $request->user();
 
-        // Redirection basée sur le rôle
         if ($user->isAdmin()) {
             return redirect()->route('admin.dashboard');
         }
@@ -41,13 +40,11 @@ class AuthenticatedSessionController extends Controller
             return redirect()->route('manager.dashboard');
         }
 
-        // Pour les clients
         if ($user->isClient()) {
-            // Vérifier si l'email est vérifié
             if (!$user->hasVerifiedEmail()) {
                 return redirect()->route('verification.notice');
             }
-            return redirect()->route('client.index');
+            return redirect()->route('client.dashboard');
         }
 
         return redirect('/');
